@@ -46,3 +46,11 @@ urlpatterns = [
     path('yourapp/', include('yourapp.urls')),
     path('admin/', admin.site.urls),
 ]
+
+
+# git
+# Master is the label of the main branch.
+#
+# Remote is the copy at the remote location of that branch you'd want to check, eg comparing master remote branch versus the local master branch copy of your branch.
+#
+# Origin is the location indicator of where that “remote” location actually is. For example if we run a command:
