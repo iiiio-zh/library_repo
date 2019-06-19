@@ -1,5 +1,5 @@
 {% if user.is_authenticated %}
-<li class="nav-item"><a class="nav-link" href="{% url 'system:viewuser' user.id %}">
+<li class="nav-item"><a class="nav-link text-light" href="{% url 'system:viewuser' user.id %}">
     {% if user.is_active %}
         {% if user.is_librarian %}
         Librarian
@@ -13,7 +13,7 @@
 {% endif %}
 {{ user.email }}
 </a></li>
-<li class="nav-item"><a class="nav-link" href="{% url 'system:logout' %}">Logout</a></li>
+<li class="nav-item"><a class="nav-link text-light" href="{% url 'system:logout' %}">Logout</a></li>
 {% else %}
 <!-- <li><a href="{% url 'system:login' %}">Login</a></li> -->
 {% endif %}

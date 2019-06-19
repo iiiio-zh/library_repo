@@ -12,7 +12,7 @@ from django.utils import timezone
 
 # from .forms import NewUserForm
 from .models import Notice, Book, BookCategory, User
-from .forms import AddBookForm, LendBookForm, UserAdminCreationForm
+from .forms import AddBookForm, LendBookForm, UserAdminCreationForm, AddNoticeForm
 
 # Create your views here.
 

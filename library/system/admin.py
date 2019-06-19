@@ -27,7 +27,6 @@ class UserAdmin(BaseUserAdmin):
     # overrides get_fieldsets to use this attribute when creating a user.
     # UserAdminCreationForm, add user
     add_fieldsets = fieldsets
-    
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
@@ -53,6 +52,7 @@ class NoticeAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': TinyMCE()},
         }
+
 
 # admin.site.register(TutorialSeries)
 # admin.site.register(TutorialCategory)

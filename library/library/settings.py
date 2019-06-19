@@ -128,6 +128,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = '<your_path>/media'
+MEDIA_URL = '/media/'
+
 # imported app settings: TInymce
 
 TINYMCE_DEFAULT_CONFIG = {

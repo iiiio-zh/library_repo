@@ -1,14 +1,26 @@
 import datetime
 from django import forms
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.utils import timezone
 
 
-from .models import User, Book
+from .models import User, Book, Notice
 
 # https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-user-model
 # class LoginForm(auth.forms.AuthenticationForm):
 #     username = forms.CharField(label=_("Username"), max_length=30,
 #                                widget=forms.TextInput(attrs={'class': 'loginput'}))
+
+class AddNoticeForm(forms.ModelForm):
+    class Meta():
+        model = Notice
+        fields = ('notice_title', 'notice_content')
+    def save(self, commit=True):
+        instance = super(AddNoticeForm, self).save(commit=False)
+        instance.published = timezone.now()
+        if commit:
+            instance.save()
+        return instance
 
 class AddBookForm(forms.ModelForm):
     book_published_date = forms.DateField(required = False, widget=forms.SelectDateWidget(years=range(1300, 2100)))
