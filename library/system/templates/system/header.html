@@ -1,32 +1,20 @@
 {% load static %}
 <head>
     <title>LibSys</title>
-
-    <!-- Prism CSS -->
     <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
-    <!-- Materialise CSS -->
-
     <link href="{% static "system/css/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "system/css/custom.css" %}" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    {% include 'system/includes/navbaritems.html' %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'system:index' %}">Library System</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  {% include 'system/includes/navbaritems.html' %}
                 </ul>
-
-				<!-- Search -->
-
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
     </nav>
+
 
     <div class="container-fluid">
         {% if messages %}
@@ -48,14 +36,10 @@
 
 
     <!-- jQuery -->
-    <script src="{% static "system/js/jquery-1.11.3.min.js" %}"></script>
+    <script src="{% static "system/js/jquery-3.4.1.min.js" %}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static "system/js/bootstrap.min.js" %}"></script>
-    <!-- IE10 viewport bug workaround -->
-    <script src="{% static "system/js/ie10-viewport-bug-workaround.js" %}"></script>
+    <script src="{% static "system/js/bootstrap.bundle.min.js" %}"></script>
 
-    <!-- Placeholder Images -->
-    <script src="{% static "system/js/holder.min.js" %}"></script>
     <!-- Prism JS -->
     <script src="{% static "tinymce/js/prism.js" %}"></script>
 
