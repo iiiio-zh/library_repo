@@ -1,0 +1,84 @@
+<ul class="list-group">
+{% for book in books %}
+    {% if book.book_active %}
+    <li class="list-group-item" a href="#collapseContent{{ book.book_slug }}" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseContent{{ book.book_slug }}">
+        <div class="card-header">
+        <h4>{{ book.book_title}}
+            <span class="label label-info label-as-badge">
+            {{ book.book_position_section }}{{ book.book_position_row }}{{book.book_position_rack }}{{book.book_position_rack_level }}
+            </span>
+        {% if book.book_borrowed  %}
+            <span class="label label-warning label-as-badge"> Unavailable </span>
+        {% else %}
+            <span class="label label-success label-as-badge"> Available </span>
+        {% endif %}
+        {% if book.book_borrowed and book.book_reserved %}
+            {% if book.book_reserved_by.id == user.id or user.is_admin or user.is_staff %}
+                <span class="label label-primary label-as-badge"> Reserved </span>
+            {% endif %}
+        {% endif %}
+        {% if book.is_overdue and user.is_authenticated and user.is_staff or user.is_admin %}
+            <span class="label label-danger label-as-badge"> OVERDUE </span>
+        {% endif %}
+        </h4>
+        <p style="font-size: 120%;">
+        {% if user.is_staff or user.is_admin  %}
+            {% if book.book_borrowed %}
+            Borrowed by: {{ book.book_borrowed_by.first_name }} {{ book.book_borrowed_by.last_name }}
+            Due: {{ book.book_return_dateline }}
+            {% endif %}
+            {% if book.book_reserved %}
+            <br>
+            {% endif %}
+        {% endif %}
+        {% if book.book_reserved and user.is_staff or user.is_admin or user.id == book.book_reserved_by.id %}
+            Reserved by: {{ book.book_reserved_by.first_name }} {{ book.book_reserved_by.last_name }}
+            {% if book.book_reservation_end_date %}
+                Reservation end: {{ book.book_reservation_end_date }}
+            {% endif %}
+        {% endif %}
+        </p>
+        </div>
+        <div class="collapse" id="collapseContent{{ book.book_slug }}">
+            <div class="card card-body">
+                <p>
+                {% if book.book_summary %}
+                    {{ book.book_summary|safe }}
+                {% else %}
+                    No summary.
+                {% endif %}
+                </p>
+                <p style="font-size: 90%">Author: {{ book.book_author }}</p>
+                <p style="font-size: 90%">Category: {{ book.book_category }}</p>
+                <p style="font-size: 70%">Published in {{ book.book_published_date|date:'Y'  }}</p>
+                {% if user.is_staff or user.is_admin  %}
+                <div>
+                    <a href="{% url 'system:editbook' book.id %}" class="btn btn-default disable-collapse">Edit</a>
+                    <a href="{% url 'system:removebook' book.id %}" class="btn btn-default disable-collapse">Remove</a>
+                    {% if book.book_active and book.book_borrowed %}
+                        <a href="{% url 'system:returnbook' book.id %}" class="btn btn-default disable-collapse">Return</a>
+                    {% else %}
+                        <a href="{% url 'system:lendbook' book.id %}" class="btn btn-default disable-collapse">Lend</a>
+                    {% endif%}
+                    {% if book.book_active and book.book_borrowed and not book.is_overdue %}
+                        <a href="{% url 'system:renewbook' book.id %}" class="btn btn-default disable-collapse">Renew</a>
+                    {% endif%}
+                    {% if book.book_active and book.book_reserved %}
+                        <a href="{% url 'system:unreservebook' book.id %}" class="btn btn-default disable-collapse">Unreserve</a>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div>
+                    {% if book.book_active and book.book_borrowed == True and book.book_reserved == False and not book.book_borrowed_by.id == user.id %}
+                        <a href="{% url 'system:reservebook' book.id %}" class="btn btn-default disable-collapse">Reserve</a>
+                    {% elif book.book_active and book.book_borrowed == True and book.book_reserved == True and book.book_reserved_by.id == user.id %}
+                        <a href="{% url 'system:unreservebook' book.id %}" class="btn btn-default disable-collapse">Unreserve</a>
+                    {% endif%}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>

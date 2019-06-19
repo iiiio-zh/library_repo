@@ -1,0 +1,26 @@
+{% extends 'system/header.html' %}
+
+{% block content %}
+    <div class="col-sm-3">
+        {% include 'system/includes/menu.html' %}
+    </div>
+
+    <div class="col-sm-6">
+
+        <h1>{{ user_viewed.first_name }} {{ user_viewed.last_name }}</h1>
+        <h2> {{ user_viewed.email }} </h2>
+        {% if books %}
+            <h2> Books borrowed: </h2>
+            {% include 'system/includes/book_list.html' %}
+        {% endif %}
+
+        <h2>Under construction...</h2>
+
+
+    </div>
+
+    <div class="col-sm-3">
+        {% include 'system/includes/carousel.html' %}
+    </div>
+
+{% endblock %}

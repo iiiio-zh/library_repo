@@ -1,0 +1,23 @@
+{% extends 'system/header.html' %}
+
+{% block content %}
+
+    <div class="panel panel-default" style="margin: auto; width: 30%; padding: 10px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <span class="glyphicon glyphicon-log-in"></span>
+                Log In
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <span style="padding-right: 60px;"></span>
+                <button class="btn waves-effect deep-purple" type="submit" name="action">Login</button>
+            </form>
+        </div>
+        {% include 'system/includes/messaging.html' %}
+    </div>
+
+{% endblock %}

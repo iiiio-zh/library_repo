@@ -1,0 +1,15 @@
+{% extends 'system/header.html' %}
+
+{% block content %}
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button class="btn waves-effect deep-purple" type="submit" name="action">Submit</button>
+
+        </form>
+
+        If you already have an account <a href="login/" target="blank"><strong>login</strong></a> instead.
+    </div>
+{% endblock %}

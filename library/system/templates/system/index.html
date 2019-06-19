@@ -1,0 +1,14 @@
+{% extends 'system/header.html' %}
+
+{% block content %}
+    <div class="col-sm-3">
+        {% include 'system/includes/menu.html' %}
+    </div>
+    <div class="col-sm-6">
+        {% include 'system/includes/searchnavbar.html' %}
+        {% include 'system/includes/book_list.html' %}
+    </div>
+    <div class="col-sm-3">
+        {% include 'system/includes/notice.html' %}
+    </div>
+{% endblock %}

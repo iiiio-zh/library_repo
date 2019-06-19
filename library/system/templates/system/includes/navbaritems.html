@@ -1,0 +1,20 @@
+<li><a href="{% url 'system:index' %}">Library System</a></li>
+{% if user.is_authenticated %}
+<li><a href="{% url 'system:viewuser' user.id %}">
+    {% if user.is_active %}
+        {% if user.is_librarian %}
+        Librarian
+        {% elif user.is_member %}
+        Member
+        {% elif user.is_admin %}
+        Admin
+        {% else %}
+        Active
+    {% endif %}
+{% endif %}
+{{ user.email }}
+</a></li>
+<li><a href="{% url 'system:logout' %}">Logout</a></li>
+{% else %}
+<!-- <li><a href="{% url 'system:login' %}">Login</a></li> -->
+{% endif %}

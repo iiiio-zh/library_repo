@@ -1,0 +1,49 @@
+{% extends 'system/header.html' %}
+
+{% block content %}
+    <div class="col-sm-3">
+        {% include 'system/includes/menu.html' %}
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    {% if from == "addbook" %}
+                        Add Book
+                    {% elif from == "editbook" %}
+                        Edit Book
+                    {% elif from == "lendbook" %}
+                        Lend Book ({{ book.book_title }})
+                    {% elif from == "adduser" %}
+                        Add User
+                    {% endif %}
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <button class="btn waves-effect deep-purple" type="submit" name="action">
+                        {% if from == "addbook" %}
+                            Add
+                        {% elif from == "editbook" %}
+                            Save
+                        {% elif from == "lendbook" %}
+                            Lend
+                        {% elif from == "adduser" %}
+                            Add
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        {% include 'system/includes/notice.html' %}
+    </div>
+
+{% endblock %}

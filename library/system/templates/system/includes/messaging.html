@@ -1,0 +1,11 @@
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'error'%}
+            <div class="alert alert-danger" role="alert">{{ message }}</div>
+            <script>$('.alert').alert()</script>
+
+        {% endif %}
+    {% endfor %}
+
+{% endif %}
+<!-- <script>M.toast({html: "{{ message }}", classes: 'red rounded', displayLength:10000});</script> -->

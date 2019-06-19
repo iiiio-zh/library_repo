@@ -1,0 +1,63 @@
+<!-- Left Column -->
+    {% if user.is_authenticated %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <form role="search" method="GET" action="{% url 'system:searchbook' %}" value="{{ request.GET.query }}">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="query">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search Book</button>
+            </form>
+        </div>
+    </div>
+    {% if user.is_active %}
+        {% if user.is_staff or user.is_admin %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form role="search" method="GET" action="{% url 'system:searchuser' %}" value="{{ request.GET.query }}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="query">
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search User</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+
+
+    <!-- List-Group Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title"><span class="glyphicon glyphicon-briefcase"></span> Options</h1>
+        </div>
+        <div class="list-group">
+            {% if user.is_active %}
+                {% if user.is_staff or user.is_admin %}
+                <a href="{% url 'system:addbook' %}" class="list-group-item">Add Book</a>
+                <a href="{% url 'system:adduser' %}" class="list-group-item">Add User</a>
+                {% elif user.is_member %}
+                <a href="#" class="list-group-item">Stub</a>
+                <a href="#" class="list-group-item">Stub</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if user.is_active %}
+        {% if user.is_staff or user.is_admin %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><span class="glyphicon glyphicon-lamp"></span> Quick Search</h1>
+            </div>
+            <div class="list-group">
+                <a href="{% url 'system:searchrevbooks' %}" class="list-group-item">Reserved Books</a>
+                <a href="{% url 'system:searchunavbooks' %}" class="list-group-item">Unavailable Books</a>
+                <a href="#" class="list-group-item">Users</a>
+            </div>
+        </div>
+        {% endif %}
+    {% endif %}
+
+    {% endif %}

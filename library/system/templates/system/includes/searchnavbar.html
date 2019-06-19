@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        {% if from == 'index' %}
+        <span class="navbar-brand">All Books (only 5 displayed):</span>
+        {% elif from == 'searchbook' %}
+        <span class="navbar-brand">Search Results:</span>
+        {% endif %}
+        </div>
+
+        <div class="collapse navbar-collapse  navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                {% if from == 'searchbook' or from == 'searchrevbooks' or from == 'searchunavbooks' or from == 'index' %}
+                    <li><a href="{% url 'system:searchtitleordered' %}"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Alphabetical</a></li>
+                    <li><a href="{% url 'system:searchtitlerevordered' %}"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span> Reverse Alphabet</a></li>
+                {% elif from == 'searchuser' %}
+                <li><a href="{% url 'system:searchuserordered' %}"><span class="glyphicon glyphicon-sort-by-alphabet"></span> Alphabetical</a></li>
+                <li><a href="{% url 'system:searchuserrevordered' %}"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span> Reverse Alphabet</a></li>
+                {% endif %}
+                </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

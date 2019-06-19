@@ -1,0 +1,11 @@
+<h2>Feed:</h2>
+{% for notice in notices %}
+
+<div class="card" style="width: 30rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{ notice.notice_title }}</h5>
+        <p class="card-text">{{ notice.notice_content|safe }}</p>
+        <p style="font-size: 70%">{{ notice.notice_published }}</p>
+    </div>
+</div>
+{% endfor %}
