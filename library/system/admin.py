@@ -37,7 +37,6 @@ class BookAdmin(admin.ModelAdmin):
         ("Published Date", {'fields': ["book_published_date"]}),
         ("URL", {'fields': ["book_slug"]}),
         ("Summary", {"fields": ["book_summary"]}),
-        ("Additional", {"fields": ["book_return_dateline", "book_returned_date", "book_borrowed_date", "book_borrowed", "book_borrowed_by"]})
     ]
     formfield_overrides = {
         models.TextField: {'widget': TinyMCE()},

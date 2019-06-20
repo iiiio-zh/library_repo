@@ -30,10 +30,10 @@ class AddBookForm(forms.ModelForm):
                   'book_position_section', 'book_position_row', 'book_position_rack',
                   'book_position_rack_level')
 
-class LendBookForm(forms.ModelForm):
-    class Meta():
-        model = Book
-        fields = ('book_borrowed_by',)
+# class LendBookForm(forms.ModelForm):
+#     class Meta():
+#         model = Book
+#         fields = ('book_borrowed_by',)
 
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)

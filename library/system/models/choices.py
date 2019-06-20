@@ -22,3 +22,10 @@ RACK_LEVEL_CHOICES = (
     ('RKL3', 'Rack Level 3'),
     ('RKL4', 'Rack Level 4'),
 )
+
+TRANSACTION_TYPE = (
+    ('CRS', 'CANCELRESERVATION'),
+    ('RS', 'RESERVATION'),
+    ('RT', 'RETURN'),
+    ('BR', 'BORROW'),
+)
