@@ -14,4 +14,4 @@ class AddBookForm(forms.ModelForm):
 # class LendBookForm(forms.ModelForm):
 #     class Meta():
 #         model = Book
-#         fields = ('book_borrowed_by',)
+#         # fields = ('book_borrowed_by',)
