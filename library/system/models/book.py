@@ -11,12 +11,12 @@ class Book(models.Model):
     book_published_date = models.DateTimeField('date published', default=None, null=True, blank=True)
     book_category = models.ForeignKey(BookCategory, default=None, verbose_name="Category", on_delete=models.SET_DEFAULT)
     book_summary = models.TextField(default=None, null=True, blank=True)
-    book_slug = models.CharField(max_length=200, default=1)
     book_active = models.BooleanField(default=True)
     book_position_section = models.CharField(max_length=20, choices=SECTION_CHOICES, default=None,)
     book_position_row = models.CharField(max_length=20, choices=ROW_CHOICES, default=None,)
     book_position_rack = models.CharField(max_length=20, choices=RACK_CHOICES, default=None,)
     book_position_rack_level = models.CharField(max_length=20, choices=RACK_LEVEL_CHOICES, default=None,)
+    book_slug = models.CharField(max_length=200, default=1)
     def make_slug(self, book_title):
         slug = book_title.replace(" ", "")
         slug = slug.lower()
