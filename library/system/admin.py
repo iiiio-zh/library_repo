@@ -52,11 +52,6 @@ class NoticeAdmin(admin.ModelAdmin):
         models.TextField: {'widget': TinyMCE()},
         }
 
-
-# admin.site.register(TutorialSeries)
-# admin.site.register(TutorialCategory)
-# admin.site.register(Tutorial, TutorialAdmin)
-
 admin.site.register(BookCategory)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Notice, NoticeAdmin)
