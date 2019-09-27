@@ -4,10 +4,10 @@ install:
   - true
 # command to run tests
 script:
-  - pytest
+  - python manage.py test
 
-services:
-  - mysql
-
-before_install:
-- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+#services:
+#  - mysql
+#
+#before_install:
+#- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
