@@ -5,6 +5,7 @@ install:
   -
 # command to run tests
 script:
+  - python manage.py migrate
   - pytest
 
 #services:
