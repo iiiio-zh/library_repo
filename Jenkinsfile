@@ -1,9 +1,19 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent none
     stages {
-        stage('build') {
+        stage('Test') {
+            agent {
+                docker {
+                    image 'python:3.6-alpine'
+                }
+            }
             steps {
-                sh 'python --version'
+                sh 'python manage.py test --verbose --junit-xml test-reports/results.xml library/system'
+            }
+            post {
+                always {
+                    junit 'test-reports/results.xml'
+                }
             }
         }
     }
