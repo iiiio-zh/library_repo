@@ -40,9 +40,10 @@ pipeline {
 //                 sh 'echo "GIT_LOCAL_BRANCH"'
                 sh '/usr/bin/git pull --all'
                 sh '/usr/bin/git branch -a'
-                sh '/usr/bin/git checkout remotes/origin/master'
+                sh '/usr/bin/git remote -v'
+//                 sh '/usr/bin/git checkout master'
 //                 sh '/usr/bin/git checkout remotes/origin/test-travis'
-                sh '/usr/bin/git merge remotes/origin/master'
+                sh '/usr/bin/git merge origin/master'
                 sh '/usr/bin/git push'
             }
         }
