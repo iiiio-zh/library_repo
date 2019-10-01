@@ -37,7 +37,8 @@ pipeline {
         stage("Deploy") {
             steps {
                 sh '/usr/bin/git pull'
-                sh '/usr/bin/git checkout master'
+                sh '/usr/bin/git branch --set-upstream origin/test-travis'
+                sh '/usr/bin/git checkout origin/master'
                 sh '/usr/bin/git checkout test-travis'
                 sh '/usr/bin/git merge master'
                 sh '/usr/bin/git push'
