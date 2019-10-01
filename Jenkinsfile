@@ -14,10 +14,8 @@ pipeline {
             }
         }
         stage('Test') {
-
             steps {
-                sh ''
-                sh 'python library/manage.py test --verbose --junit-xml test-reports/results.xml library/system'
+                sh 'python3 library/manage.py test --verbose --junit-xml test-reports/results.xml library/system'
             }
             post {
                 always {
