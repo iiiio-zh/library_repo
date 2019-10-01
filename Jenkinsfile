@@ -1,14 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.6-alpine'
+            image 'bionic-20190912.1'
             reuseNode true
         }
     }
     stages {
         stage('Build') {
             steps {
-                sh 'apt-get install mysql-server'
+                sh 'sudo apt-get update && sudo apt-get install python3.6'
+                sh 'sudo apt-get install mysql-server'
                 sh 'pip install -r requirements.txt'
             }
         }
