@@ -10,6 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'python --version'
+                sh 'sudo easy_install pip'
                 sh 'pip install virtualenv'
                 sh 'python library/manage.py testlibrary/system'
 //                 sh 'apt-get update && apt-get -y install python3.6 mysql-server python3-pip'
