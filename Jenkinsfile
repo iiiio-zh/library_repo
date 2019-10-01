@@ -19,8 +19,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cd library'
-                sh 'python manage.py test --verbose --junit-xml test-reports/results.xml library/system'
+                sh 'python library/manage.py test --verbose --junit-xml test-reports/results.xml library/system'
             }
             post {
                 always {
