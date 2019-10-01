@@ -37,9 +37,9 @@ pipeline {
         stage("Deploy") {
             steps {
                 sh '/usr/bin/git status'
-                sh '/usr/bin/git fetch'
+                sh '/usr/bin/git fetch origin'
                 sh '/usr/bin/git pull'
-                sh '/usr/bin/git merge master'
+                sh '/usr/bin/git merge origin/master'
                 sh '/usr/bin/git push'
             }
         }
