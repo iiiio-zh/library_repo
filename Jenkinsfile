@@ -7,21 +7,20 @@ pipeline {
 //         }
 //     }
     stages {
-        stage('Build') {
-            steps {
-                sh 'python --version'
-                sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
-//                 sh 'pip install virtualenv'
-//                 sh 'python library/manage.py testlibrary/system'
-//                 sh 'apt-get update && apt-get -y install python3.6 mysql-server python3-pip'
-//                 sh 'apt-get install -y libmysqlclient-dev python-dev'
-//                 sh 'pip3 install -r requirements.txt'
+//         stage('Build') {
+//             steps {
+//                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
             }
         }
-//         stage('Test') {
-//             steps {
-//                 sh 'python3 library/manage.py testlibrary/system'
-//             }
-//         }
+        stage('Test') {
+            steps {
+               sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
+            }
+        }
+        stage('Sonar Scan') {
+            steps {
+               sh 'sonar-scanner'
+            }
+        }
     }
 }
