@@ -19,7 +19,7 @@ pipeline {
         }
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
+                withSonarQubeEnv(credentialsId: '855492cca04d0d43dcaa1ccf5b7d87de82a3a696', installationName: 'Online Sonar Cloud') { // If you have configured more than one global server connection, you can specify its name
                   sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
                 }
             }
