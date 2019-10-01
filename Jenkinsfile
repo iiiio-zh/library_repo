@@ -18,8 +18,10 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
-              sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
+            steps {
+                withSonarQubeEnv() { // If you have configured more than one global server connection, you can specify its name
+                  sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
+                }
             }
         }
         stage("Quality Gate") {
