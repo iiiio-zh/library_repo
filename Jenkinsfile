@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Sonar Scan') {
             steps {
-               sh 'sonar-scanner'
+               sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
             }
         }
     }
