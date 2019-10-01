@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'sudo apt-get install mysql-server'
+                sh 'apt-get install mysql-server'
                 sh 'pip install -r requirements.txt'
             }
         }
