@@ -10,8 +10,8 @@ pipeline {
 //         stage('Build') {
 //             steps {
 //                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
-            }
-        }
+//             }
+//         }
         stage('Test') {
             steps {
                sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
