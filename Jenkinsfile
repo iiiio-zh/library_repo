@@ -43,9 +43,8 @@ pipeline {
                 sh '/usr/bin/git remote -v'
                 sh '/usr/bin/git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
                 sh '/usr/bin/git fetch --all'
-//                 sh '/usr/bin/git checkout master'
-//                 sh '/usr/bin/git checkout remotes/origin/test-travis'
                 sh '/usr/bin/git merge origin/master'
+                sh '/usr/bin/git commit -m "deploy"'
                 sh '/usr/bin/git push'
             }
         }
