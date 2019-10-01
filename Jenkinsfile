@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'bionic-20190912.1'
+            image 'ubuntu:bionic-20190912.1'
             reuseNode true
         }
     }
