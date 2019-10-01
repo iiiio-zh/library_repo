@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 //     {
 //         docker {
 //             image 'ubuntu:bionic-20190912.1'
