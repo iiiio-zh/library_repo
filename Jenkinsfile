@@ -1,24 +1,20 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'python:3.6-alpine'
+            reuseNode true
+        }
+    }
     stages {
-//         stage('Build') {
-//             checkout scm
-//             agent {
-//                 docker {
-//                     image 'python:3.6-alpine'
-//                 }
-//             }
-//             steps {
-//                 sh 'python -m py_compile library'
-//             }
-//         }
-        stage('Test') {
-            agent {
-                docker {
-                    image 'python:3.6-alpine'
-                }
-            }
+        stage('Build') {
             steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Test') {
+
+            steps {
+                sh ''
                 sh 'python library/manage.py test --verbose --junit-xml test-reports/results.xml library/system'
             }
             post {
