@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 //     {
 //         docker {
 //             image 'ubuntu:bionic-20190912.1'
@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python -v'
-                sh 'conda activate test-travis'
+                sh 'python --version'
+//                 sh 'conda activate test-travis'
                 sh 'python library/manage.py testlibrary/system'
 //                 sh 'apt-get update && apt-get -y install python3.6 mysql-server python3-pip'
 //                 sh 'apt-get install -y libmysqlclient-dev python-dev'
