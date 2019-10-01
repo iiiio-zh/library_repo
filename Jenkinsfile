@@ -9,6 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'apt-get update && apt-get install python3.6'
+                sh 'y'
                 sh 'apt-get install mysql-server'
                 sh 'pip install -r requirements.txt'
             }
