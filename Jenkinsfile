@@ -2,16 +2,17 @@ pipeline {
     properties([pipelineTriggers([githubPush()])]
     agent none
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'python:3.6-alpine'
-                }
-            }
-            steps {
-                sh 'python -m py_compile library'
-            }
-        }
+//         stage('Build') {
+//             checkout scm
+//             agent {
+//                 docker {
+//                     image 'python:3.6-alpine'
+//                 }
+//             }
+//             steps {
+//                 sh 'python -m py_compile library'
+//             }
+//         }
         stage('Test') {
             agent {
                 docker {
