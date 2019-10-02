@@ -46,7 +46,7 @@ pipeline {
                 sh '/usr/bin/git fetch --all'
 //                 sh '/usr/bin/git checkout -b temp'
                 sh '/usr/bin/git log'
-                sh '/usr/bin/git diff master temp'
+//                 sh '/usr/bin/git diff master temp'
                 sh '/usr/bin/git diff origin/master temp'
 //                 sh '/usr/bin/git clean -f -d'
 //                 sh '/usr/bin/git branch -u origin/master'
