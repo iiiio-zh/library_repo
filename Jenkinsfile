@@ -40,7 +40,7 @@ pipeline {
 //         }
         stage("Deploy") {
             steps {
-                sh 'remote -v'
+                sh 'git remote -v'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
 //                 sh 'git config credential.$GIT_URL.username iiiiio'
                 sh 'git config --list'
