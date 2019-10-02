@@ -36,22 +36,13 @@ pipeline {
 //         }
         stage("Deploy") {
             steps {
-//                 sh 'echo "$GIT_BRANCH"'
-//                 sh 'echo "GIT_LOCAL_BRANCH"'
-//                 sh '/usr/bin/git pull --all'
-
 //                 sh '/usr/bin/git remote -v'
-//                 sh 'git config --global credential.helper osxkeychain'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
-//                 sh '/usr/bin/git branch -a'
-//                 sh 'git fetch --all'
+
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
-//                 sh 'git branch -u remotes/origin/master'
                 sh 'git merge origin/$GIT_BRANCH'
-//                 sh 'git push --set-upstream origin origin/master'
-//                 sh 'git checkout ${GIT_BRANCH} origin/${GIT_BRANCH}'
-//                 sh 'git push origin HEAD:master'
-                sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
+                sh 'git push --set-upstream origin origin/master'
+
             }
         }
     }
