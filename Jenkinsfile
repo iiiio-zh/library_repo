@@ -39,16 +39,17 @@ pipeline {
 //                 sh 'echo "$GIT_BRANCH"'
 //                 sh 'echo "GIT_LOCAL_BRANCH"'
 //                 sh '/usr/bin/git pull --all'
-                sh '/usr/bin/git branch -a'
-                sh '/usr/bin/git remote -v'
+
+//                 sh '/usr/bin/git remote -v'
                 sh '/usr/bin/git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
+                sh '/usr/bin/git branch -a'
                 sh '/usr/bin/git fetch --all'
-                sh '/usr/bin/git clean -f -d'
-                sh '/usr/bin/git branch -u origin/master'
-                sh '/usr/bin/git checkout origin/master'
-                sh '/usr/bin/git merge origin/$GIT_BRANCH'
-                sh '/usr/bin/git commit -am "deploy"'
-                sh '/usr/bin/git push origin master'
+//                 sh '/usr/bin/git clean -f -d'
+//                 sh '/usr/bin/git branch -u origin/master'
+//                 sh '/usr/bin/git checkout origin/master'
+//                 sh '/usr/bin/git merge origin/$GIT_BRANCH'
+//                 sh '/usr/bin/git commit -am "deploy"'
+//                 sh '/usr/bin/git push origin master'
             }
         }
     }
