@@ -6,7 +6,10 @@ pipeline {
 //             reuseNode true
 //         }
 //     }
-
+    checkout([
+      $class: 'GitSCM', branches: [[name: '*/master']],
+      userRemoteConfigs: [[url: 'git@github.com:iiiiio/library_repo.git',credentialsId:'jenkinsmaster']]
+    ])
     stages {
 //         stage('Build') {
 //             steps {
@@ -39,8 +42,9 @@ pipeline {
             steps {
 //                 sh '/usr/bin/git remote -v'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
-                checkout scm
-                sh 'git branch -f origin/master HEAD && git checkout origin/master'
+                sh 'git config credential.$GIT_URL.username iiiiio'
+                sh 'git config credential.$GIT_URL.passsword 97GAfcUz21Qw'
+//                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git merge $GIT_BRANCH'
                 sh 'git push --set-upstream origin origin/master'
 
