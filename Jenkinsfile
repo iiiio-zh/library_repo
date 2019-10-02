@@ -56,6 +56,7 @@ pipeline {
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
                 sh 'git remote -v'
+                sh 'git remote set-url origin git@github.com:iiiiio/library_repo.git'
                 sh 'git push'
 
             }
