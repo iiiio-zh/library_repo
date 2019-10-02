@@ -62,11 +62,12 @@ pipeline {
 //                 sh 'git remote set-url origin git@github.com:iiiiio/library_repo.git'
 //                 sh 'git push'
 //              sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git'
-
-                withCredentials([usernamePassword(credentialsId: '76d5e510-0f74-4364-8162-e199edd00433', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
-                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
-                }
+                sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
+                sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
+//                 withCredentials([usernamePassword(credentialsId: '76d5e510-0f74-4364-8162-e199edd00433', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+//                     sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
+//                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
+//                 }
 
             }
         }
