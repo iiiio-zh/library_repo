@@ -41,15 +41,16 @@ pipeline {
 //                 sh '/usr/bin/git pull --all'
 
 //                 sh '/usr/bin/git remote -v'
-                sh 'git config --global credential.helper osxkeychain'
+//                 sh 'git config --global credential.helper osxkeychain'
                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
 //                 sh '/usr/bin/git branch -a'
                 sh 'git fetch --all'
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git branch -u remotes/origin/master'
                 sh 'git merge origin/$GIT_BRANCH'
-                sh 'git remote set-url origin $GIT_URL'
-                sh 'git push origin HEAD:master'
+//                 sh 'git remote set-url origin $GIT_URL'
+//                 sh 'git push origin HEAD:master'
+                sh 'git push $GIT_URL HEAD'
             }
         }
     }
