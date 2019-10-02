@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh 'git remote -v'
                 sh 'git branch -a'
-                sh 'git branch -d local_master || true'
+//                 sh 'git branch -d local_master || true'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/origin/*"'
                 sh 'git fetch --all'
 //                 sh 'git config credential.$GIT_URL.username iiiiio'
@@ -51,7 +51,7 @@ pipeline {
                 sh 'git remote show origin'
 //                 sh 'git config --list'
                 sh 'git checkout --track remotes/origin/master'
-//                 sh 'git checkout -b local_master'
+                sh 'git checkout master'
                 sh 'git merge $GIT_BRANCH'
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
