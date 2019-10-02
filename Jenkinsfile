@@ -50,7 +50,7 @@ pipeline {
                 sh 'git merge origin/$GIT_BRANCH'
 //                 sh 'git remote set-url origin $GIT_URL'
 //                 sh 'git push origin HEAD:master'
-                sh 'git push $GIT_URL HEAD'
+                sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
             }
         }
     }
