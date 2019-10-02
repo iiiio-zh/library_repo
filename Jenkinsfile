@@ -54,7 +54,7 @@ pipeline {
                 sh 'git remote show origin'
 //                 sh 'git config --list'
 //                 sh 'git checkout --track remotes/origin/master'
-                sh 'git checkout master'
+                sh 'git checkout -b master origin/master'
                 sh 'git merge $GIT_BRANCH'
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
