@@ -47,12 +47,12 @@ pipeline {
                 sh 'git fetch --all'
 //                 sh 'git config credential.$GIT_URL.username iiiiio'
                 sh 'git branch -a'
-                sh 'git config --list'
-                sh 'git branch -f origin/master HEAD && git checkout origin/master'
-                sh 'git merge origin/$GIT_BRANCH'
-                sh 'git commit -m "deploy"'
-                sh 'git status'
-                sh 'git push --set-upstream origin origin/master'
+//                 sh 'git config --list'
+//                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
+//                 sh 'git merge origin/$GIT_BRANCH'
+//                 sh 'git commit -m "deploy"'
+//                 sh 'git status'
+//                 sh 'git push --set-upstream origin origin/master'
 //                 sh 'git push --set-upstream origin/master'
 
             }
