@@ -49,7 +49,7 @@ pipeline {
                 sh 'git branch -a'
 //                 sh 'git config --list'
                 sh 'git branch -f remotes/origin/master HEAD && git checkout remotes/origin/master'
-                sh 'git branch --set-upstream-to=refs/remotes/origin/master remotes/origin/master'
+                sh 'git branch --set-upstream-to=remotes/origin/master'
                 sh 'git merge $GIT_BRANCH'
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
