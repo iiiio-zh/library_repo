@@ -47,6 +47,7 @@ pipeline {
                 sh 'git fetch --all'
 //                 sh 'git config credential.$GIT_URL.username iiiiio'
                 sh 'git branch -a'
+                sh 'git branch -vv'
 //                 sh 'git config --list'
                 sh 'git checkout --track remotes/origin/master'
 //                 sh 'git checkout -b local_master'
