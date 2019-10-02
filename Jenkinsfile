@@ -39,9 +39,9 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
-            environment {
-                GIT_AUTH = credentials('76d5e510-0f74-4364-8162-e199edd00433')
-            }
+//             environment {
+//                 GIT_AUTH = credentials('76d5e510-0f74-4364-8162-e199edd00433')
+//             }
             steps {
                 sh 'git remote -v'
                 sh 'git branch -a'
@@ -65,7 +65,7 @@ pipeline {
 //                 sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
 //                 sh 'git push https://$GIT_AUTH_USR:$GIT_AUTH_PSW@github.com/iiiiio/library_repo.git'
                 withCredentials([usernamePassword(credentialsId: '76d5e510-0f74-4364-8162-e199edd00433', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
+//                     sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
                 }
 
