@@ -48,9 +48,10 @@ pipeline {
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git branch -u remotes/origin/master'
                 sh 'git merge origin/$GIT_BRANCH'
+                sh 'push'
 //                 sh 'git checkout ${GIT_BRANCH} origin/${GIT_BRANCH}'
 //                 sh 'git push origin HEAD:master'
-                sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
+//                 sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
             }
         }
     }
