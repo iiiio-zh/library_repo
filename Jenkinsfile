@@ -46,7 +46,7 @@ pipeline {
 //                 sh '/usr/bin/git branch -a'
 //                 sh 'git fetch --all'
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
-                sh 'git branch -u remotes/origin/master'
+//                 sh 'git branch -u remotes/origin/master'
                 sh 'git merge origin/$GIT_BRANCH'
                 sh 'push'
 //                 sh 'git checkout ${GIT_BRANCH} origin/${GIT_BRANCH}'
