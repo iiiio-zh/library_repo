@@ -47,6 +47,7 @@ pipeline {
                 sh '/usr/bin/git checkout origin/master'
                 sh '/usr/bin/git merge origin/$GIT_BRANCH'
                 sh '/usr/bin/git commit -am "deploy"'
+                sh '/usr/bin/git branch -u origin/master'
                 sh '/usr/bin/git push origin master'
             }
         }
