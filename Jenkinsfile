@@ -39,9 +39,7 @@ pipeline {
             steps {
 //                 sh '/usr/bin/git remote -v'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
-                sh 'git config credential.$GIT_URL.username iiiiio'
-                sh 'git config credential.$GIT_URL.passsword 97GAfcUz21Qw'
-//                 checkout scm
+                checkout scm
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git merge $GIT_BRANCH'
                 sh 'git push --set-upstream origin origin/master'
