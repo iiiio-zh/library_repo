@@ -45,13 +45,12 @@ pipeline {
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
 //                 sh '/usr/bin/git branch -a'
 //                 sh 'git fetch --all'
-//                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
-//                 sh 'git branch -u remotes/origin/master'
-//                 sh 'git merge origin/$GIT_BRANCH'
+                sh 'git branch -f origin/master HEAD && git checkout origin/master'
+                sh 'git branch -u remotes/origin/master'
+                sh 'git merge origin/$GIT_BRANCH'
 //                 sh 'git checkout ${GIT_BRANCH} origin/${GIT_BRANCH}'
-                sh 'git checkout master'
 //                 sh 'git push origin HEAD:master'
-//                 sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
+                sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
             }
         }
     }
