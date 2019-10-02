@@ -8,14 +8,14 @@ pipeline {
 //     }
 
     stages {
-            stage("Checkout"){
-                steps {
-                    scmVars = checkout(scm)
-                    sh 'echo "scmVars: ${scmVars}"'
-                    sh 'echo "scmVars.GIT_COMMIT: ${scmVars.GIT_COMMIT}"'
-                    sh 'echo "scmVars.GIT_BRANCH: "${scmVars.GIT_BRANCH}"'
-                }
-            }
+//             stage("Checkout"){
+//                 steps {
+//                     scmVars = checkout(scm)
+//                     sh 'echo "scmVars: ${scmVars}"'
+//                     sh 'echo "scmVars.GIT_COMMIT: ${scmVars.GIT_COMMIT}"'
+//                     sh 'echo "scmVars.GIT_BRANCH: "${scmVars.GIT_BRANCH}"'
+//                 }
+//             }
 //         stage('Build') {
 //             steps {
 //                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
