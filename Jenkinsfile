@@ -45,7 +45,7 @@ pipeline {
                 sh '/usr/bin/git branch -a'
                 sh '/usr/bin/git fetch --all'
                 sh '/usr/bin/git checkout -b temp'
-                sh '/usr/bin/git log --graph --decorate --pretty=oneline --abbrev-commit master origin/master temp'
+                sh '/usr/bin/git log'
                 sh '/usr/bin/git git diff master temp'
                 sh '/usr/bin/git git diff origin/master temp'
 //                 sh '/usr/bin/git clean -f -d'
