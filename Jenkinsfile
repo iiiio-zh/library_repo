@@ -49,7 +49,7 @@ pipeline {
                 sh '/usr/bin/git branch -u remotes/origin/master'
                 sh '/usr/bin/git merge origin/$GIT_BRANCH'
 //                 sh '/usr/bin/git commit -m "deploy"'
-                sh '/usr/bin/git push origin master'
+                sh '/usr/bin/git push'
             }
         }
     }
