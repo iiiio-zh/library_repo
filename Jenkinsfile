@@ -58,6 +58,7 @@ pipeline {
                 sh 'git remote -v'
 //                 sh 'git remote set-url origin git@github.com:iiiiio/library_repo.git'
 //                 sh 'git push'
+//
                 withCredentials([usernamePassword(credentialsId: '6ad8e086-f824-4988-8f29-e1f32ede4d53', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git'
                 }
