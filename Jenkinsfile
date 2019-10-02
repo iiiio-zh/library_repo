@@ -53,7 +53,7 @@ pipeline {
                 sh 'git merge $GIT_BRANCH'
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
-//                 sh 'git push --set-upstream origin origin/master'
+                sh 'git remote -v'
                 sh 'git push --set-upstream origin local_master'
 
             }
