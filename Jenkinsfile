@@ -56,7 +56,7 @@ pipeline {
 //                 sh 'git commit -m "deploy"'
 //                 sh 'git status'
                 sh 'git remote -v'
-                sh 'git push --set-upstream origin local_master'
+                sh 'git push'
 
             }
         }
