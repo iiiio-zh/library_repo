@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                checkout scm
                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
             }
         }
