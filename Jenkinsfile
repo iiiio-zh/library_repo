@@ -35,10 +35,13 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
+            final scmVars = checkout(scm)
             steps {
 //                 sh '/usr/bin/git remote -v'
 //                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
-
+                sh 'echo "scmVars: ${scmVars}"'
+                sh 'echo "scmVars.GIT_COMMIT: ${scmVars.GIT_COMMIT}"'
+                sh 'echo "scmVars.GIT_BRANCH: "${scmVars.GIT_BRANCH}"'
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git merge origin/$GIT_BRANCH'
                 sh 'git push --set-upstream origin origin/master'
