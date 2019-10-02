@@ -6,10 +6,10 @@ pipeline {
 //             reuseNode true
 //         }
 //     }
-    checkout([
-      $class: 'GitSCM', branches: [[name: '*/master']],
-      userRemoteConfigs: [[url: 'git@github.com:iiiiio/library_repo.git',credentialsId:'jenkinsmaster']]
-    ])
+//     checkout([
+//       $class: 'GitSCM', branches: [[name: '*/master']],
+//       userRemoteConfigs: [[url: 'git@github.com:iiiiio/library_repo.git',credentialsId:'jenkinsmaster']]
+//     ])
     stages {
 //         stage('Build') {
 //             steps {
