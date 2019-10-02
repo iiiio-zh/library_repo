@@ -51,10 +51,10 @@ pipeline {
                 sh 'git checkout remotes/origin/master'
                 sh 'git checkout -b local_master'
                 sh 'git merge $GIT_BRANCH'
-//                 sh 'git commit -m "deploy"'
+                sh 'git commit -m "deploy"'
 //                 sh 'git status'
 //                 sh 'git push --set-upstream origin origin/master'
-                sh 'git push --set-upstream origin/master local_master'
+                sh 'git push --set-upstream origin local_master'
 
             }
         }
