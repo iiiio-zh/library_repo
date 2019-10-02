@@ -49,7 +49,7 @@ pipeline {
 //                 sh 'git branch -u remotes/origin/master'
 //                 sh 'git merge origin/$GIT_BRANCH'
                 sh 'git checkout -b ${GIT_BRANCH} origin/${GIT_BRANCH}'
-//                 sh 'git remote set-url origin $GIT_URL'
+                sh 'git checkout master'
 //                 sh 'git push origin HEAD:master'
 //                 sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git HEAD'
             }
