@@ -50,7 +50,7 @@ pipeline {
                 sh 'git branch -vv'
                 sh 'git remote show origin'
 //                 sh 'git config --list'
-                sh 'git checkout --track remotes/origin/master'
+//                 sh 'git checkout --track remotes/origin/master'
                 sh 'git checkout master'
                 sh 'git merge $GIT_BRANCH'
 //                 sh 'git commit -m "deploy"'
