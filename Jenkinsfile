@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sh 'git remote -v'
                 sh 'git branch -a'
-                sh 'git branch -d origin/master'
+//                 sh 'git branch -d origin/master'
                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/origin/*"'
                 sh 'git fetch --all'
 //                 sh 'git config credential.$GIT_URL.username iiiiio'
