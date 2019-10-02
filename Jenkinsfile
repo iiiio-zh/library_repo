@@ -46,6 +46,7 @@ pipeline {
                 sh 'git config --list'
                 sh 'git branch -f origin/master HEAD && git checkout origin/master'
                 sh 'git merge $GIT_BRANCH'
+                sh 'git status'
                 sh 'git push --set-upstream origin origin/master'
 //                 sh 'git push --set-upstream origin/master'
 
