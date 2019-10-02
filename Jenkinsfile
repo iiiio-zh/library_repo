@@ -44,16 +44,11 @@ pipeline {
                 sh '/usr/bin/git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
                 sh '/usr/bin/git branch -a'
                 sh '/usr/bin/git fetch --all'
-                sh '/usr/bin/git branch -d temp'
                 sh '/usr/bin/git log'
-//                 sh '/usr/bin/git diff master temp'
-                sh '/usr/bin/git diff origin/master temp'
-//                 sh '/usr/bin/git clean -f -d'
-//                 sh '/usr/bin/git branch -u origin/master'
-//                 sh '/usr/bin/git checkout origin/master'
-//                 sh '/usr/bin/git merge origin/$GIT_BRANCH'
-//                 sh '/usr/bin/git commit -am "deploy"'
-//                 sh '/usr/bin/git push origin master'
+                sh '/usr/bin/git branch -f origin/master HEAD && git checkout origin/master'
+                sh '/usr/bin/git merge origin/$GIT_BRANCH'
+                sh '/usr/bin/git commit -am "deploy"'
+                sh '/usr/bin/git push origin master'
             }
         }
     }
