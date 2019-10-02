@@ -10,7 +10,7 @@ pipeline {
     stages {
             stage("Checkout"){
                 steps {
-                    final scmVars = checkout(scm)
+                    scmVars = checkout(scm)
                     sh 'echo "scmVars: ${scmVars}"'
                     sh 'echo "scmVars.GIT_COMMIT: ${scmVars.GIT_COMMIT}"'
                     sh 'echo "scmVars.GIT_BRANCH: "${scmVars.GIT_BRANCH}"'
