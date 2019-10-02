@@ -44,7 +44,7 @@ pipeline {
                 sh '/usr/bin/git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"'
                 sh '/usr/bin/git branch -a'
                 sh '/usr/bin/git fetch --all'
-//                 sh '/usr/bin/git checkout -b temp'
+                sh '/usr/bin/git branch -d temp'
                 sh '/usr/bin/git log'
 //                 sh '/usr/bin/git diff master temp'
                 sh '/usr/bin/git diff origin/master temp'
