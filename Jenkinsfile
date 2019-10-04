@@ -17,24 +17,14 @@ pipeline {
 //             }
 //         }
 //         stage('Test') {
-//             agent {
-//                 docker { image 'python:3.6' }
-//             }
 //             steps {
-//                 sh 'echo skip'
-//                 sh 'pip install -r requirements.txt'
-//                 sh 'python library/manage.py test'
+//                sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
 //             }
 //         }
 //         stage('SonarQube Analysis') {
-//             agent {
-//                 docker { image 'newtmitch/sonar-scanner:4.0.0' }
-//             }
 //             steps {
-//
 //                 withSonarQubeEnv(installationName: 'Online Sonar Cloud') { // If you have configured more than one global server connection, you can specify its name
 //                   sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
-//                   sh 'sonar-scanner'
 //                 }
 //             }
 //         }
@@ -49,23 +39,32 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
-//             agent {
-//                 docker {
-//                     image 'ubuntu:bionic-20190912.1'
-//                 }
+//             environment {
+//                 GIT_AUTH = credentials('76d5e510-0f74-4364-8162-e199edd00433')
 //             }
             steps {
                 sh 'git remote -v'
                 sh 'git branch -a'
                 sh 'git branch -d master || true'
+//                 sh 'git config remote.origin.fetch "+refs/heads/*:refs/origin/*"'
                 sh 'git fetch --all'
+//                 sh 'git config credential.$GIT_URL.username iiiiio'
                 sh 'git branch -a'
                 sh 'git branch -vv'
                 sh 'git remote show origin'
+//                 sh 'git config --list'
+//                 sh 'git checkout --track remotes/origin/master'
                 sh 'git checkout -b master origin/master'
+                sh 'git merge $GIT_BRANCH'
+//                 sh 'git commit -m "deploy"'
+//                 sh 'git status'
+                sh 'git remote -v'
+//                 sh 'git remote set-url origin git@github.com:iiiiio/library_repo.git'
+//                 sh 'git push'
+//              sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git'
+//                 sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
+//                 sh 'git push https://$GIT_AUTH_USR:$GIT_AUTH_PSW@github.com/iiiiio/library_repo.git'
                 withCredentials([usernamePassword(credentialsId: '36c5933e-d21f-41fe-897e-b66f619a1579', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh 'git merge $GIT_BRANCH'
-                    sh 'git remote -v'
                     sh 'printf "%s %s" $GIT_PASSWORD $GIT_USERNAME'
                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
                 }
@@ -74,7 +73,7 @@ pipeline {
         }
     }
 }
-// 36c5933e-d21f-41fe-897e-b66f619a1579 for docker
+
 // docker run \
 //   -u root \
 //   --rm \
