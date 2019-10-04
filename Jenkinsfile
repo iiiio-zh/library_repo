@@ -49,6 +49,9 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
+            docker {
+                image 'ubuntu:bionic-20190912.1'
+            }
             steps {
                 sh 'git remote -v'
                 sh 'git branch -a'
