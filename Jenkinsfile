@@ -17,19 +17,23 @@ pipeline {
 //             }
 //         }
         stage('Test') {
-            agent {
-                docker { image 'python:3.6' }
-            }
+//             agent {
+//                 docker { image 'python:3.6' }
+//             }
             steps {
-                sh 'echo skip'
+//                 sh 'echo skip'
 //                 sh 'pip install -r requirements.txt'
-//                 sh 'python library/manage.py test'
+                sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
             }
         }
         stage('SonarQube Analysis') {
+//             agent {
+//                 docker { image 'ubuntu:bionic-20190912.1' }
+//             }
             steps {
+
                 withSonarQubeEnv(installationName: 'Online Sonar Cloud') { // If you have configured more than one global server connection, you can specify its name
-                  sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
+                  sh 'sonar-scanner'
                 }
             }
         }
