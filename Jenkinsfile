@@ -49,8 +49,10 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
-            docker {
-                image 'ubuntu:bionic-20190912.1'
+            agent {
+                docker {
+                    image 'ubuntu:bionic-20190912.1'
+                }
             }
             steps {
                 sh 'git remote -v'
