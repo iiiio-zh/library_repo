@@ -55,6 +55,7 @@ pipeline {
                 }
             }
             steps {
+                sh 'apt update && apt install git'
                 sh 'git remote -v'
                 sh 'git branch -a'
                 sh 'git branch -d master || true'
