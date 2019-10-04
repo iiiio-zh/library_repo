@@ -64,9 +64,9 @@ pipeline {
                 sh 'git branch -vv'
                 sh 'git remote show origin'
                 sh 'git checkout -b master origin/master'
-                sh 'git merge $GIT_BRANCH'
-                sh 'git remote -v'
                 withCredentials([usernamePassword(credentialsId: '36c5933e-d21f-41fe-897e-b66f619a1579', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh 'git merge $GIT_BRANCH'
+                    sh 'git remote -v'
                     sh 'printf "%s %s" $GIT_PASSWORD $GIT_USERNAME'
                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
                 }
