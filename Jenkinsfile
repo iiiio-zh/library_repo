@@ -21,6 +21,7 @@ pipeline {
                 docker { image 'python:3.5.1' }
             }
             steps {
+               sh 'pip install -r requirements.txt'
                sh 'python library/manage.py test'
             }
         }
