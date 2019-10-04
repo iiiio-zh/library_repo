@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 //     {
 //         docker {
 //             image 'ubuntu:bionic-20190912.1'
@@ -17,6 +17,9 @@ pipeline {
 //             }
 //         }
         stage('Test') {
+            agent {
+                docker { image 'python:3.5.1' }
+            }
             steps {
                sh 'python library/manage.py test'
             }
