@@ -33,7 +33,8 @@ pipeline {
             steps {
 
                 withSonarQubeEnv(installationName: 'Online Sonar Cloud') { // If you have configured more than one global server connection, you can specify its name
-                  sh 'sonar-scanner'
+//                   sh '/usr/local/Cellar/sonar-scanner/4.0.0.1744/bin/sonar-scanner'
+                  sh 'sonar:sonar'
                 }
             }
         }
