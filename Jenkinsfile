@@ -18,7 +18,7 @@ pipeline {
 //         }
         stage('Test') {
             steps {
-               sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
+               sh 'python library/manage.py test'
             }
         }
         stage('SonarQube Analysis') {
