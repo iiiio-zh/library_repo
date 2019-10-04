@@ -49,13 +49,12 @@ pipeline {
 //             }
 //         }
         stage("Deploy") {
-            agent {
-                docker {
-                    image 'ubuntu:bionic-20190912.1'
-                }
-            }
+//             agent {
+//                 docker {
+//                     image 'ubuntu:bionic-20190912.1'
+//                 }
+//             }
             steps {
-                sh 'apt update && apt install -y git'
                 sh 'git remote -v'
                 sh 'git branch -a'
                 sh 'git branch -d master || true'
