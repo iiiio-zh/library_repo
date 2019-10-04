@@ -45,7 +45,9 @@ pipeline {
 //                 }
 //             }
             steps {
-//                 sh 'apt update && apt install git'
+                sh 'git config --local credential.helper'
+                sh 'git config --global credential.helper'
+                sh 'git config --system credential.helper'
                 sh 'git remote -v'
                 sh 'git branch -a'
                 sh 'git branch -d master || true'
