@@ -17,13 +17,14 @@ pipeline {
 //             }
 //         }
         stage('Test') {
-//             agent {
-//                 docker { image 'python:3.6' }
-//             }
+            agent {
+                docker { image 'python:3.6' }
+            }
             steps {
-//                 sh 'echo skip'
-//                 sh 'pip install -r requirements.txt'
-                sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
+                sh 'echo skip'
+                sh 'pip install -r requirements.txt'
+//                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
+                sh 'python library/manage.py test'
             }
         }
         stage('SonarQube Analysis') {
