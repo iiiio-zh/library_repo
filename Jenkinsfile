@@ -21,7 +21,7 @@ pipeline {
                 docker { image 'python:3.6' }
             }
             steps {
-                sh 'echo 'skip
+                sh 'echo skip'
 //                 sh 'pip install -r requirements.txt'
 //                 sh 'python library/manage.py test'
             }
