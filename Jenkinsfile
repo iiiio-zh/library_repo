@@ -23,14 +23,13 @@ pipeline {
             steps {
                 sh 'echo skip'
                 sh 'pip install -r requirements.txt'
-//                 sh '/miniconda3/envs/test-travis/bin/python library/manage.py test'
                 sh 'python library/manage.py test'
             }
         }
         stage('SonarQube Analysis') {
-//             agent {
-//                 docker { image 'ubuntu:bionic-20190912.1' }
-//             }
+            agent {
+                docker { image 'newtmitch/sonar-scanner:4.0.0' }
+            }
             steps {
 
                 withSonarQubeEnv(installationName: 'Online Sonar Cloud') { // If you have configured more than one global server connection, you can specify its name
