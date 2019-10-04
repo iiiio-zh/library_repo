@@ -61,15 +61,26 @@ pipeline {
                 sh 'git remote -v'
 //                 sh 'git remote set-url origin git@github.com:iiiiio/library_repo.git'
 //                 sh 'git push'
-             sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git'
+//              sh 'git push https://iiiiio:97GAfcUz21Qw@github.com/iiiiio/library_repo.git'
 //                 sh 'printf "%s %s" $GIT_AUTH_PSW $GIT_AUTH_USR'
 //                 sh 'git push https://$GIT_AUTH_USR:$GIT_AUTH_PSW@github.com/iiiiio/library_repo.git'
-//                 withCredentials([usernamePassword(credentialsId: '76d5e510-0f74-4364-8162-e199edd00433', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-//                     sh 'printf "%s %s" $GIT_PASSWORD $GIT_USERNAME'
-//                     sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
-//                 }
+                withCredentials([usernamePassword(credentialsId: '36c5933e-d21f-41fe-897e-b66f619a1579', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh 'printf "%s %s" $GIT_PASSWORD $GIT_USERNAME'
+                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/iiiiio/library_repo.git'
+                }
 
             }
         }
     }
 }
+
+// docker run \
+//   -u root \
+//   --rm \
+//   -d \
+//   -p 8000:8080 \
+//   -p 50000:50000 \
+//   -v jenkins-data:/Users/Shared/Jenkins \
+//   -v /var/run/docker.sock:/var/run/docker.sock \
+//   jenkinsci/blueocean
+//   b26a871258edf8593472579dbc9ded470d6930bf6453014fa8186eb5037919cd
